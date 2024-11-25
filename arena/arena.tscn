@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxu1v5wysndgd"]
+
+[ext_resource type="PackedScene" uid="uid://dg1ywu4koculj" path="res://fighters/dollar_store_employee/dollar_store_employee.tscn" id="1_y6pnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py4g2"]
+size = Vector2(10000, 20)
+
+[node name="Arena" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="FloorShape" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 600)
+shape = SubResource("RectangleShape2D_py4g2")
+
+[node name="DollarStoreEmployee" parent="." instance=ExtResource("1_y6pnr")]
+position = Vector2(201, 417)
+can_double_jump = null
