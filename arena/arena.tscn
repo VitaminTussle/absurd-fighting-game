@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxu1v5wysndgd"]
+[gd_scene load_steps=4 format=3 uid="uid://cxu1v5wysndgd"]
 
 [ext_resource type="PackedScene" uid="uid://dg1ywu4koculj" path="res://fighters/dollar_store_employee/dollar_store_employee.tscn" id="1_y6pnr"]
+[ext_resource type="PackedScene" uid="uid://diwpdrgdm08gl" path="res://fighters/three_raccoons_in_a_trenchcoat/three_raccoons_in_a_trenchcoat.tscn" id="2_nd1hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py4g2"]
 size = Vector2(10000, 20)
@@ -15,4 +16,6 @@ shape = SubResource("RectangleShape2D_py4g2")
 
 [node name="DollarStoreEmployee" parent="." instance=ExtResource("1_y6pnr")]
 position = Vector2(201, 417)
-can_double_jump = null
+
+[node name="ThreeRaccoonsInATrenchcoat" parent="." instance=ExtResource("2_nd1hn")]
+position = Vector2(895, 419)

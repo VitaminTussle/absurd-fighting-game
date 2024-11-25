@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwpdrgdm08gl"]
+
+[ext_resource type="Script" path="res://fighters/three_raccoons_in_a_trenchcoat/three_raccoons_in_a_trenchcoat.gd" id="1_4bf1w"]
+[ext_resource type="Texture2D" uid="uid://bk653rk7n6pek" path="res://icon.svg" id="2_s24wl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ibl"]
+size = Vector2(50, 50)
+
+[node name="ThreeRaccoonsInATrenchcoat" type="CharacterBody2D"]
+script = ExtResource("1_4bf1w")
+player_number = 2
+jump_velocity = -500
+fast_fall_multiplier = 2
+walk_speed = 400
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_s24wl")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m4ibl")

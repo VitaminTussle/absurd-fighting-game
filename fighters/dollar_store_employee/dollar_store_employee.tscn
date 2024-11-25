@@ -8,7 +8,6 @@ size = Vector2(50, 50)
 
 [node name="DollarStoreEmployee" type="CharacterBody2D"]
 script = ExtResource("1_85s88")
-can_double_jump = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
