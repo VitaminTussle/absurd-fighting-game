@@ -1,12 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5h455f6h7rgm"]
+[gd_scene load_steps=3 format=3 uid="uid://c5h455f6h7rgm"]
 
 [ext_resource type="Script" path="res://fighters/_fighter_utils/fighter_finder_raycast/fighter_finder_raycast.gd" id="1_q6nkm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7x3u"]
+size = Vector2(5, 400)
 
 [node name="FighterFinderRaycast" type="Node2D"]
 script = ExtResource("1_q6nkm")
 
 [node name="LeftRayCast" type="RayCast2D" parent="."]
+position = Vector2(-11, 0)
 target_position = Vector2(-5000, 0)
+collision_mask = 2147483648
+collide_with_areas = true
 
 [node name="RightRayCast" type="RayCast2D" parent="."]
+position = Vector2(11, 0)
 target_position = Vector2(5000, 0)
+collision_mask = 2147483648
+collide_with_areas = true
+
+[node name="RayCastReceiver" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RayCastReceiver"]
+shape = SubResource("RectangleShape2D_x7x3u")
