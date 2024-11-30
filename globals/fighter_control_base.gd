@@ -11,6 +11,7 @@ signal deal_damage(to_player: int, amount: float)
 var raycast: FighterFinderRaycast = null
 var can_double_jump := false
 var is_fast_falling := false
+var x_limit := 0
 
 # engine methods
 
@@ -32,8 +33,13 @@ func _physics_process(delta):
 	var horiz_direction = Input.get_axis(_get_input_name("left"), _get_input_name("right"))
 	var vert_direction = Input.get_axis(_get_input_name("up"), _get_input_name("down"))
 	if horiz_direction:
-		# if trying to go right and left raycast is maxed out, or if trying to go left and right raycast is maxed out, uh, don't
-		var maxed_out := raycast != null and ((horiz_direction > 0 and raycast.left_max) or (horiz_direction < 0 and raycast.right_max))
+		# if trying to go right and left raycast is maxed out, or if trying to go left and right raycast is maxed out, or if trying to go past x limit, uh, don't
+		var maxed_out := raycast != null and (
+			(horiz_direction > 0 and raycast.left_max) or
+			(horiz_direction < 0 and raycast.right_max) or
+			(horiz_direction < 0 and position.x <= x_limit * -1) or
+			(horiz_direction > 0 and position.x >= get_viewport_rect().size.x + x_limit)
+		)
 		if not maxed_out:
 			velocity.x = horiz_direction * walk_speed
 		else:

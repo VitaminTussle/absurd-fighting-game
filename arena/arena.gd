@@ -16,12 +16,14 @@ func _ready():
 	player_1.player_number = 1
 	player_1.position.x = vp_size.x / 4
 	player_1.position.y = vp_size.y * 2 / 3
+	player_1.x_limit = CAMERA_X_LIMIT
 	player_1.deal_damage.connect(_deal_damage)
 	add_child(player_1)
 	player_2 = preload("res://fighters/three_raccoons_in_a_trenchcoat/three_raccoons_in_a_trenchcoat.tscn").instantiate()
 	player_2.player_number = 2
 	player_2.position.x = vp_size.x * 3 / 4
 	player_2.position.y = vp_size.y * 2 / 3
+	player_2.x_limit = CAMERA_X_LIMIT
 	player_2.deal_damage.connect(_deal_damage)
 	add_child(player_2)
 	
