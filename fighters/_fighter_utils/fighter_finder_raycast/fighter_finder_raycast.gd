@@ -8,7 +8,7 @@ const MAX_DISTANCE = 500
 var left_max := false
 var right_max := false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if left_ray.is_colliding():
 		var loc_collision_pt := to_local(left_ray.get_collision_point())
 		var collision_distance := absf(loc_collision_pt.x)

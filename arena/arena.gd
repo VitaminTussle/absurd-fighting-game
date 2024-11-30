@@ -5,8 +5,8 @@ const CAMERA_X_LIMIT = 1000
 @onready var player_1: FighterControlBase
 @onready var player_2: FighterControlBase
 
-var p1_hp := 100
-var p2_hp := 100
+var p1_hp := 100.0
+var p2_hp := 100.0
 
 # engine methods
 
@@ -37,7 +37,7 @@ func _process(delta):
 
 func _deal_damage(to_player: int, amount: float):
 	print("dealing " + str(amount) + " damage to player " + str(to_player))
-	p1_hp -= amount if to_player == 1 else 0
-	p2_hp -= amount if to_player == 2 else 0
+	p1_hp -= amount if to_player == 1 else 0.0
+	p2_hp -= amount if to_player == 2 else 0.0
 	if p1_hp <= 0 or p2_hp <= 0:
 		print("game over!")
