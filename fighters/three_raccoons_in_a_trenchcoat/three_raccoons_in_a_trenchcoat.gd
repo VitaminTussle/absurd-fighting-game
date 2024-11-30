@@ -1,4 +1,4 @@
 extends FighterControlBase
 
 func _ready():
-	pass
+	raycast = $FighterFinderRaycast

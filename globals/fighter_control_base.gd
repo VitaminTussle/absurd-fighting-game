@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var fast_fall_multiplier := 3
 @export var walk_speed := 200
 
+var raycast: FighterFinderRaycast = null
 var can_double_jump := false
 var is_fast_falling := false
 
@@ -25,7 +26,12 @@ func _physics_process(delta):
 	
 	var direction = Input.get_axis(get_input_name("left"), get_input_name("right"))
 	if direction:
-		velocity.x = direction * walk_speed
+		# if trying to go right and left raycast is maxed out, or if trying to go left and right raycast is maxed out, uh, don't
+		var maxed_out: bool = raycast != null and ((direction > 0 and raycast.left_max) or (direction < 0 and raycast.right_max))
+		if not maxed_out:
+			velocity.x = direction * walk_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, walk_speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, walk_speed)
 	

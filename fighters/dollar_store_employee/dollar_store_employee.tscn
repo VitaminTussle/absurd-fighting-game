@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg1ywu4koculj"]
+[gd_scene load_steps=5 format=3 uid="uid://dg1ywu4koculj"]
 
 [ext_resource type="Script" path="res://fighters/dollar_store_employee/dollar_store_employee.gd" id="1_85s88"]
 [ext_resource type="Texture2D" uid="uid://bk653rk7n6pek" path="res://icon.svg" id="2_5feyu"]
+[ext_resource type="PackedScene" uid="uid://c5h455f6h7rgm" path="res://fighters/_fighter_utils/fighter_finder_raycast/fighter_finder_raycast.tscn" id="3_frhsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hne8i"]
 size = Vector2(50, 50)
@@ -15,3 +16,5 @@ texture = ExtResource("2_5feyu")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hne8i")
+
+[node name="FighterFinderRaycast" parent="." instance=ExtResource("3_frhsn")]

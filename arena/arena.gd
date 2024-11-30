@@ -1,5 +1,7 @@
 extends Node2D
 
+const CAMERA_X_LIMIT = 1000
+
 @onready var player_1: FighterControlBase
 @onready var player_2: FighterControlBase
 
@@ -16,8 +18,8 @@ func _ready():
 	player_2.position.y = vp_size.y * 2 / 3
 	add_child(player_2)
 	
-	%ArenaCam.limit_left = -1000
-	%ArenaCam.limit_right = vp_size.x + 1000
+	%ArenaCam.limit_left = CAMERA_X_LIMIT * -1
+	%ArenaCam.limit_right = vp_size.x + CAMERA_X_LIMIT
 
 func _process(delta):
 	var vp_size = get_viewport().size
