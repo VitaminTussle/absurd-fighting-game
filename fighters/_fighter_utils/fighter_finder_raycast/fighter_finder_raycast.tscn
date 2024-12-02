@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://fighters/_fighter_utils/fighter_finder_raycast/fighter_finder_raycast.gd" id="1_q6nkm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7x3u"]
-size = Vector2(5, 400)
+size = Vector2(5, 800)
 
 [node name="FighterFinderRaycast" type="Node2D"]
 script = ExtResource("1_q6nkm")
