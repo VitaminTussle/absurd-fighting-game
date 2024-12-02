@@ -20,6 +20,7 @@ texture = ExtResource("2_5feyu")
 shape = SubResource("RectangleShape2D_hne8i")
 
 [node name="FighterFinderRaycast" parent="." instance=ExtResource("3_frhsn")]
+visible = false
 
 [node name="GroundedJab" type="Area2D" parent="."]
 visible = false

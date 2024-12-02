@@ -22,3 +22,4 @@ texture = ExtResource("2_s24wl")
 shape = SubResource("RectangleShape2D_m4ibl")
 
 [node name="FighterFinderRaycast" parent="." instance=ExtResource("3_e560f")]
+visible = false
