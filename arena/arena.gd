@@ -1,4 +1,6 @@
-extends Node2D
+class_name Arena extends Node2D
+
+signal quit_to_menu
 
 const CAMERA_X_LIMIT = 1000
 
@@ -34,6 +36,9 @@ func _process(delta):
 	var vp_size = get_viewport().size
 	%ArenaCam.position.x = vp_size.x / 2 if not player_1 or not player_2 else ((player_1.position.x + player_2.position.x) / 2)
 	%ArenaCam.position.y = vp_size.y / 2
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		quit_to_menu.emit()
 
 # util methods
 

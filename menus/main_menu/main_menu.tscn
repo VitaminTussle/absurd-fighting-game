@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckipy4jxybhu3"]
+
+[ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="1_82ujx"]
+[ext_resource type="Texture2D" uid="uid://bk653rk7n6pek" path="res://icon.svg" id="2_alhj3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_82ujx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.278431, 0.407843, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_alhj3")
+
+[node name="BoxContainer" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer2" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer3" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer4" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlayButton" type="Button" parent="ColorRect/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+
+[node name="BoxContainer5" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer6" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionsButton" type="Button" parent="ColorRect/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="BoxContainer7" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer8" type="BoxContainer" parent="ColorRect/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/GridContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/GridContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/GridContainer/ExitButton" to="." method="_on_exit_button_pressed"]

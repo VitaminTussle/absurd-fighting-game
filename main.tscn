@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://o0lruklcvlia"]
+[gd_scene load_steps=3 format=3 uid="uid://o0lruklcvlia"]
 
-[ext_resource type="PackedScene" uid="uid://cxu1v5wysndgd" path="res://arena/arena.tscn" id="1_xaqel"]
+[ext_resource type="Script" path="res://main.gd" id="1_cs0tv"]
+[ext_resource type="PackedScene" uid="uid://ckipy4jxybhu3" path="res://menus/main_menu/main_menu.tscn" id="2_ivg8r"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_cs0tv")
 
-[node name="Arena" parent="." instance=ExtResource("1_xaqel")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_ivg8r")]
+unique_name_in_owner = true
+
+[connection signal="play" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_play"]
