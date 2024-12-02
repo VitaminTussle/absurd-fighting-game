@@ -2,11 +2,14 @@ class_name Arena extends Node2D
 
 signal quit_to_menu
 
+const Fighters = ChooseFighterInfo.Fighters
 const CAMERA_X_LIMIT = 1000
 
 @onready var player_1: FighterControlBase
 @onready var player_2: FighterControlBase
 
+var p1_choice: Fighters = -1
+var p2_choice: Fighters = -1
 var p1_hp := 100.0
 var p2_hp := 100.0
 
@@ -14,14 +17,14 @@ var p2_hp := 100.0
 
 func _ready():
 	var vp_size = get_viewport().size
-	player_1 = preload("res://fighters/dollar_store_employee/dollar_store_employee.tscn").instantiate()
+	player_1 = ChooseFighterInfo.enum_to_node(p1_choice)
 	player_1.player_number = 1
 	player_1.position.x = vp_size.x / 4
 	player_1.position.y = vp_size.y * 2 / 3
 	player_1.x_limit = CAMERA_X_LIMIT
 	player_1.deal_damage.connect(_deal_damage)
 	add_child(player_1)
-	player_2 = preload("res://fighters/three_raccoons_in_a_trenchcoat/three_raccoons_in_a_trenchcoat.tscn").instantiate()
+	player_2 = ChooseFighterInfo.enum_to_node(p2_choice)
 	player_2.player_number = 2
 	player_2.position.x = vp_size.x * 3 / 4
 	player_2.position.y = vp_size.y * 2 / 3

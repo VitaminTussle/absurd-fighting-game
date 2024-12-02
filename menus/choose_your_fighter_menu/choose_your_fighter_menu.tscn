@@ -1,0 +1,116 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct3nmxxc87nol"]
+
+[ext_resource type="Script" path="res://menus/choose_your_fighter_menu/choose_your_fighter_menu.gd" id="1_ww1ig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfcfe"]
+font_size = 24
+
+[node name="ChooseYourFighterMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ww1ig")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0.278431, 0.407843, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Choose your fighter!"
+label_settings = SubResource("LabelSettings_rfcfe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+
+[node name="DollarStoreEmployeeButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "DSE"
+
+[node name="ThreeRaccoonsInATrenchcoatButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "3RiaT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="P1Panel" type="Panel" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="P1Container" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P1Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P1Panel/P1Container"]
+layout_mode = 2
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="P1CharacterLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P1Panel/P1Container"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="P2Panel" type="Panel" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="P2Container" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P2Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P2Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P2Panel/P2Container"]
+layout_mode = 2
+text = "Player 2"
+horizontal_alignment = 1
+
+[node name="P2CharacterLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/P2Panel/P2Container"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/GridContainer/DollarStoreEmployeeButton" to="." method="_on_dollar_store_employee_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/GridContainer/ThreeRaccoonsInATrenchcoatButton" to="." method="_on_three_raccoons_in_a_trenchcoat_button_pressed"]

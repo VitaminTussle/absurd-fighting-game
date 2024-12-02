@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://o0lruklcvlia"]
+[gd_scene load_steps=4 format=3 uid="uid://o0lruklcvlia"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cs0tv"]
 [ext_resource type="PackedScene" uid="uid://ckipy4jxybhu3" path="res://menus/main_menu/main_menu.tscn" id="2_ivg8r"]
+[ext_resource type="PackedScene" uid="uid://ct3nmxxc87nol" path="res://menus/choose_your_fighter_menu/choose_your_fighter_menu.tscn" id="3_7yfq7"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_cs0tv")
@@ -11,4 +12,10 @@ script = ExtResource("1_cs0tv")
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_ivg8r")]
 unique_name_in_owner = true
 
+[node name="ChooseYourFighterMenu" parent="CanvasLayer" instance=ExtResource("3_7yfq7")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="play" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_play"]
+[connection signal="quit_to_menu" from="CanvasLayer/ChooseYourFighterMenu" to="." method="_on_choose_your_fighter_menu_quit_to_menu"]
+[connection signal="start" from="CanvasLayer/ChooseYourFighterMenu" to="." method="_on_choose_your_fighter_menu_start"]
